@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Downloading - YouTube Downloader{% endblock %}
+
+{% block content %}
+<div class="card fade-in">
+    <div id="progress-container">
+        <h1 id="status-title" class="status-downloading">🔄 Initializing Download...</h1>
+        
+        <div id="video-title"></div>
+        
+        <div class="progress-section">
+            <div class="progress-bar">
+                <div id="progress-fill" style="width: 0%"></div>
+            </div>
+            
+            <div class="progress-info">
+                <div id="percentage">0%</div>
+                <div id="speed">Speed: -</div>
+                <div id="eta">ETA: -</div>
+            </div>
+        </div>
+        
+        <div id="error-message" class="error"></div>
+        
+        <div id="completed-actions">
+            <div class="success">
+                <strong>✅ Download Complete!</strong><br>
+                Your file is being downloaded to your default downloads folder...
+            </div>
+            
+            <div class="action-buttons">
+                <a id="open-btn" href="#" class="action-btn success" style="display: none;">
+                    <span class="icon">📂</span>
+                    <span>Open File</span>
+                </a>
+                <a id="back-to-home-btn" href="/" class="action-btn secondary">
+                    <span class="icon">🏠</span>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Progress page loaded, starting download process...');
+});
+</script>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card fade-in">
+    <h1>📺 YouTube Downloader</h1>
+    <p class="subtitle">Download videos and audio from YouTube easily</p>
+    
+    {% if error %}
+    <div class="error" style="display: block;">
+        {{ error }}
+    </div>
+    {% endif %}
+    
+    <form method="POST" action="/download" onsubmit="return validateForm()">
+        <div class="form-group">
+            <label for="video_url">YouTube Video URL</label>
+            <input 
+                type="text" 
+                id="video_url"
+                name="video_url" 
+                placeholder="https://www.youtube.com/watch?v=..." 
+                required
+            >
+        </div>
+        
+        <div class="form-group">
+            <label for="quality">Download Quality</label>
+            <select name="quality" id="quality">
+                <option value="audio">🎵 Audio Only (MP3)</option>
+                <option value="360">📱 360p Video</option>
+                <option value="480">💻 480p Video</option>
+                <option value="720" selected>🎬 720p Video (Recommended)</option>
+                <option value="1080">🎯 1080p Video</option>
+                <option value="highest">⭐ Highest Quality</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="download-btn">
+            <span>⬇️ Download Video</span>
+        </button>
+    </form>
+    
+    <div style="margin-top: 20px; text-align: center; color: var(--light-text); font-size: 12px;">
+        <p>Supports YouTube videos and playlists</p>
+    </div>
+</div>
+{% endblock %}
